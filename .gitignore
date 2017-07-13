@@ -4,3 +4,5 @@
 /.asset-cache/*
 /_assets/bower/*
 /_site/*
+*.iml
+*.ipr
