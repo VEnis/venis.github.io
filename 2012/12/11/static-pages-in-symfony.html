@@ -1,0 +1,480 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.4.1 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Static Pages In Symfony  My Blog</title>
+
+
+
+
+<meta name="description" content="Almost all websites have some kind of static pages that does not need any logic.Usually they have empty controller that looks like:">
+
+
+
+
+<meta name="author" content="Vyacheslav Enis">
+
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="My Blog">
+<meta property="og:title" content="Static Pages In Symfony">
+
+
+  <link rel="canonical" href="https://venis.github.io/2012/12/11/static-pages-in-symfony.html">
+  <meta property="og:url" content="https://venis.github.io/2012/12/11/static-pages-in-symfony.html">
+
+
+
+  <meta property="og:description" content="Almost all websites have some kind of static pages that does not need any logic.Usually they have empty controller that looks like:">
+
+
+
+
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2012-12-11T00:00:00+02:00">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="https://venis.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="My Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://venis.github.io/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="https://venis.github.io/">My Blog</a>
+        <ul class="visible-links">
+          
+        </ul>
+        <button><div class="navicon"></div></button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name" itemprop="name">Vyacheslav Enis</h3>
+    
+      <p class="author__bio" itemprop="description">
+        
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:venis@difane.com">
+            <meta itemprop="email" content="venis@difane.com" />
+            <i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+        <li>
+          <a href="https://twitter.com/venis" itemprop="sameAs">
+            <i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://bitbucket.org/venis" itemprop="sameAs">
+            <i class="fa fa-fw fa-bitbucket" aria-hidden="true"></i> Bitbucket
+          </a>
+        </li>
+      
+
+      
+        <li>
+          <a href="https://github.com/venis" itemprop="sameAs">
+            <i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+        <li>
+          <a href="https://www.stackoverflow.com/users/272922/vyacheslav-enis" itemprop="sameAs">
+            <i class="fa fa-fw fa-stack-overflow" aria-hidden="true"></i> Stackoverflow
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  <nav class="nav__list">
+    <ul class="nav__items">
+        <li>
+            <span class="nav__sub-title">Categories</span>
+            <ul>
+                
+                
+                <li><a href="/categories/source-control">Source Control (2)</a></li>
+                
+                
+                <li><a href="/categories/software-development">Software Development (1)</a></li>
+                
+            </ul>
+        </li>
+        <li>
+            <span class="nav__sub-title">Tags</span>
+            <ul>
+                
+                
+                <li><a href="/tags/git">git (1)</a>
+                </li>
+                
+                
+                <li><a href="/tags/scm">scm (1)</a>
+                </li>
+                
+                
+                <li><a href="/tags/symfony">symfony (1)</a>
+                </li>
+                
+            </ul>
+        </li>
+    </ul>
+</nav>
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Static Pages In Symfony">
+    <meta itemprop="description" content="Almost all websites have some kind of static pages that does not need any logic.Usually they have empty controller that looks like:">
+    <meta itemprop="datePublished" content="December 11, 2012">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Static Pages In Symfony
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p>Almost all websites have some kind of static pages that does not need any logic.
+Usually they have empty controller that looks like:</p>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="k">public</span> <span class="k">function</span> <span class="nf">aboutAction</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">'AcmeBundle:Pages:about.html.twig'</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>You also need to reference them in the routing configuration:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">about</span><span class="pi">:</span>
+    <span class="s">pattern</span><span class="pi">:</span> <span class="s">/about</span>
+    <span class="s">defaults</span><span class="pi">:</span> <span class="s">_controller</span><span class="pi">:</span> <span class="s1">'</span><span class="s">AcmeBundle:Pages:about'</span></code></pre></figure>
+
+<p>Annotations usage simplifies things but it still too much work:</p>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="sd">/**
+ * @Route("/about", name="about")
+ * @Template
+ */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">aboutAction</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">array</span><span class="p">();</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Instead that you can use built-in symfony’s controller <strong>FrameworkBundle:Template:template</strong> and configure
+everything right in the routing configuration file:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">about</span><span class="pi">:</span>
+    <span class="s">pattern</span><span class="pi">:</span> <span class="s">/about</span>
+    <span class="s">defaults</span><span class="pi">:</span>
+        <span class="s">_controller</span><span class="pi">:</span> <span class="s">FrameworkBundle:Template:template</span>
+        <span class="s">template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">AcmeBundle:Pages:about.html.twig'</span></code></pre></figure>
+
+<p>If You look at the controllers source You will see that it simply renders passed template using <strong>templating</strong> service:</p>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="c1">// vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/TemplateController.php
+</span><span class="k">class</span> <span class="nc">TemplateController</span> <span class="k">extends</span> <span class="nx">ContainerAware</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">templateAction</span><span class="p">(</span><span class="nv">$template</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">container</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'templating'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">renderResponse</span><span class="p">(</span><span class="nv">$template</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="https://venis.github.io/tags/symfony" class="page__taxonomy-item" rel="tag">symfony</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="https://venis.github.io/categories/software-development" class="page__taxonomy-item" rel="tag">Software Development</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2012-12-11T00:00:00+02:00">December 11, 2012</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Static Pages In Symfony https://venis.github.io/2012/12/11/static-pages-in-symfony.html" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://venis.github.io/2012/12/11/static-pages-in-symfony.html" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=https://venis.github.io/2012/12/11/static-pages-in-symfony.html" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://venis.github.io/2012/12/11/static-pages-in-symfony.html" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="https://venis.github.io/2012/11/11/initial-git-configuration.html" class="pagination--pager" title="Initial Git Configuration
+">Previous</a>
+    
+    
+      <a href="https://venis.github.io/2013/01/20/how-to-save-files-right.html" class="pagination--pager" title="How To Save Files Right
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+    
+    
+    
+      <li><a href="http://github.com/venis"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    
+      <li><a href="http://bitbucket.org/venis"><i class="fa fa-fw fa-bitbucket" aria-hidden="true"></i> Bitbucket</a></li>
+    
+    <li><a href="https://venis.github.io/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2017 Vyacheslav Enis. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    <script src="https://venis.github.io/assets/js/main.min.js"></script>
+
+
+
+
+
+  </body>
+</html>
