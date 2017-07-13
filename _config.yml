@@ -1,15 +1,9 @@
-#assets:
-#  compress:
-#      css: true
-#      js: true
-#  features:
-#    automatic_img_size: false
-#  sources:
-#    - _assets/bower
-#    - _assets/fonts
-#    - _assets/images
-#    - _assets/javascripts
-#    - _assets/stylesheets
+# GitHub
+username:             VEnis
+
+# Jekyll source / destination
+source:               .
+destination:          _site
 
 exclude:
   - .bowerrc
@@ -68,7 +62,7 @@ title: "My Blog"
 name: "Vyacheslav Enis"
 description: "This is my site"
 url: "https://venis.github.io"
-repository: "venis/venis.github.io"
+repository: "VEnis/venis.github.io"
 breadcrumbs: false
 
 defaults:
@@ -82,6 +76,7 @@ defaults:
       author_profile: true
       share: true
       related: true
+      comments: true
   # _pages
   - scope:
       path: ""
@@ -123,3 +118,22 @@ author:
   weibo            :
   xing             :
   youtube          : # "https://youtube.com/c/MichaelRoseDesign"
+
+comments:
+  provider: "staticman"
+staticman:
+  allowedFields          : ['name', 'email', 'url', 'message']
+  branch                 : "source"
+  commitMessage          : "New comment."
+  filename               : comment-{@timestamp}
+  format                 : "yml"
+  moderation             : true
+  path                   : "_data/comments/{options.slug}"
+  requiredFields         : ['name', 'email', 'message']
+  transforms:
+    email                : "md5"
+  generatedFields:
+    date:
+      type               : "date"
+      options:
+        format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
