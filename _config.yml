@@ -28,7 +28,6 @@ paginate: 5
 
 permalink: /:year/:month/:day/:title.html
 
-url: # Add your site url
 theme: minimal-mistakes-jekyll
 
 category_archive:
