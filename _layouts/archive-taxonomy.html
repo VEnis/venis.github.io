@@ -1,0 +1,28 @@
+---
+layout: default
+author_profile: true
+---
+
+<div id="main" role="main">
+  {% include sidebar.html %}
+
+  <div class="archive">
+    <h1 class="page__title">
+      {% case page.type %}
+      {% when 'tag' %}
+      Posts tagged with "{{ page.title }}"
+      {% when 'category' %}
+      Posts in category "{{ page.title }}"
+      {% when 'year' %}
+      Archive of posts from {{ page.date | date: "%Y" }}
+      {% when 'month' %}
+      Archive of posts from {{ page.date | date: "%B %Y" }}
+      {% when 'day' %}
+      Archive of posts from {{ page.date | date: "%B %-d, %Y" }}
+      {% endcase %}
+    </h1>
+    {% for post in page.posts %}
+      {% include archive-single.html %}
+    {% endfor %}
+  </div>
+</div>

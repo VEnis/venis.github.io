@@ -1,34 +1,125 @@
-assets:
-  compress:
-      css: true
-      js: true
-  features:
-    automatic_img_size: false
-  sources:
-    - _assets/bower
-    - _assets/fonts
-    - _assets/images
-    - _assets/javascripts
-    - _assets/stylesheets
+#assets:
+#  compress:
+#      css: true
+#      js: true
+#  features:
+#    automatic_img_size: false
+#  sources:
+#    - _assets/bower
+#    - _assets/fonts
+#    - _assets/images
+#    - _assets/javascripts
+#    - _assets/stylesheets
 
 exclude:
   - .bowerrc
   - .travis.yml
   - bin/*
-  - bower.json
-  - circle.yml
   - Gemfile
   - Gemfile.lock
   - README.md
+  - venis.github.io.iml
+  - venis.github.io.ipr
+  - venis.github.io.iws
 
 ga_analytics: # Add Google Analytics tracking code
 
-gems:
+plugins:
   - jekyll-assets
   - jekyll-sitemap
+  - jekyll-archives
+  - jekyll-paginate
 
-name: venis_github_io
+name: venis.github.io
+paginate: 5
 
-permalink: pretty
+permalink: /:year/:month/:day/:title.html
 
 url: # Add your site url
+theme: minimal-mistakes-jekyll
+
+category_archive:
+  type: jekyll-archives
+  path: /categories/
+tag_archive:
+  type: jekyll-archives
+  path: /tags/
+
+jekyll-archives:
+  enabled: all
+  layout: 'archive-taxonomy'
+#  layouts:
+#    category: 'archive-taxonomy-categories'
+#    tag: 'archive-taxonomy-tags'
+#    year: 'archive-taxonomy'
+#    month: 'archive-taxonomy'
+#    day: 'archive-taxonomy'
+  permalinks:
+    category: '/categories/:name/'
+    tag: '/tags/:name/'
+    year: '/:year/'
+    month: '/:year/:month/'
+    day: '/:year/:month/:day/'
+
+
+
+locale: "en-US"
+title: "My Blog"
+name: "Vyacheslav Enis"
+description: "This is my site"
+url: "https://venis.github.io"
+repository: "venis/venis.github.io"
+breadcrumbs: false
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      read_time: true
+      layout: single
+      author_profile: true
+      share: true
+      related: true
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+
+timezone: 'Europe/Kiev'
+
+
+# Site Author
+author:
+  name             : "Vyacheslav Enis"
+  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "" 
+  location         : 
+  email            : "venis@difane.com"
+  uri              :
+  bitbucket        : "venis"
+  codepen          :
+  dribbble         :
+  flickr           :
+  facebook         :
+  foursquare       :
+  github           : "venis"
+  gitlab           :
+  google_plus      :
+  keybase          :
+  instagram        :
+  lastfm           :
+  linkedin         :
+  pinterest        :
+  soundcloud       :
+  stackoverflow    : "272922/vyacheslav-enis" # "123456/username" (the last part of your profile url, e.g. http://stackoverflow.com/users/123456/username)
+  steam            :
+  tumblr           :
+  twitter          : "venis"
+  vine             :
+  weibo            :
+  xing             :
+  youtube          : # "https://youtube.com/c/MichaelRoseDesign"

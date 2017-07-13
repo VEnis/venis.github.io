@@ -1,0 +1,24 @@
+<nav class="nav__list">
+    <ul class="nav__items">
+        <li>
+            <span class="nav__sub-title">Categories</span>
+            <ul>
+                {% for category in site.categories %}
+                {% assign category_name = category | first %}
+                <li><a href="/categories/{{category_name | slugify }}">{{category_name}} ({{ category | last | size
+                    }})</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>
+            <span class="nav__sub-title">Tags</span>
+            <ul>
+                {% for tag in site.tags %}
+                {% assign tag_name = tag | first %}
+                <li><a href="/tags/{{tag_name}}">{{tag_name | downcase | replace:" ","-"}} ({{ tag | last | size }})</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
+</nav>
