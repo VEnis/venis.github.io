@@ -24,7 +24,6 @@ plugins:
   - jekyll-archives
   - jekyll-paginate
 
-name: venis.github.io
 paginate: 5
 
 permalink: /:year/:month/:day/:title.html
