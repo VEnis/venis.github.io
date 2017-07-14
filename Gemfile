@@ -7,6 +7,7 @@ gem "mini_magick"
 gem "sass"
 gem "uglifier"
 gem "minimal-mistakes-jekyll"
+gem "rake", "~> 10.1.1"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do

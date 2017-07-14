@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+- 2.4.1
+branches:
+  only:
+  - source
+install:
+- gem install bundler --conservative
+- bundle install
+script: bundle exec rake site:deploy --quiet
+env:
+  global:
+    secure: "SmJDvEdb3Vz6plyp8sORfxaepzbdbhBi62wWMpSxE+G58BKkC12MpOzf2CQ84gMNjFfK2QXZtyUPY5je5SgmsCTawKbNjOe/L1qbhP0ESb1TQ5C9ABPoBonLpuqHNu68p5PWkF7DFA9QWQ4i6TvufDEbfRvJHGZoP0J3Hrs+8GWL2pAZsE07GFKceoNEHrQp46tTtU+yogqFnaHrPd7aB2lq3KiYrCpmwXPxUMIPnzyuO2W4b2pC9LosjQUxOLJSocA5XLBkt5wpVT8aTsVdudetWoz4RVDeaJQ8fYgHXZwNB9MQ5k0F9sxpiE/rRV000j+y/b9EjWjK/H/O/Z50lUSUCghZjlRf+31P+r23pfrBm6z8WwaklHplLUHkTbTZUbnRtNAmURmd3/110xYyqPlBB+1Ni+b3IEwAP9QxC8IHjMe9l0CD0j019nKYjtgos9XruZPQHA277e1CjhAEKsbE55Q7oEf627cIK/SQA0FfPLBp+Uk3H70K/Crpm24JOSePv8jnUcQ3Z1yvXhLdwXu+OOLKQhluAtcDjFxHv2YjPbZ/gOl1vxFhKDLLQABUPmPSv9nuwK9qgBi1Z//+djCCCKoW1vGHiO0f4JZcVPZJ0/8T3oTGOGCLnmoexVfnqVuVVWTw56dbw0QflWolYLmlCCSSYDxa2WhdzvJhKMs="

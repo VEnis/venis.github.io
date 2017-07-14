@@ -11,6 +11,7 @@ exclude:
   - bin/*
   - Gemfile
   - Gemfile.lock
+  - Rakefile
   - README.md
   - venis.github.io.iml
   - venis.github.io.ipr
