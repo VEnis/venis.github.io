@@ -13,6 +13,6 @@ different hosts.
 To solve given problem using for example database is overhead. Everything needed is just some distributed lightweight 
 key-value storage with shared lock support. Here are some candidates:
 
-* etcd (https://coreos.com/etcd)
-* consul (https://www.consul.io, especially https://www.consul.io/docs/commands/lock.html)
-* redis (http://redis.io)
+* [etcd](https://coreos.com/etcd)
+* [consul](https://www.consul.io), especially [consul-lock](https://www.consul.io/docs/commands/lock.html)
+* [redis](http://redis.io)
