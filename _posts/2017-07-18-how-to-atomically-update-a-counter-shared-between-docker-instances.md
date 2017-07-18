@@ -1,5 +1,5 @@
 ---
-category: "Q&A"
+category: ["HowTo", "Enterprise integration"]
 tags: docker etcd consul redis enterprise-integration
 ---
 
