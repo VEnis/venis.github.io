@@ -19,12 +19,12 @@
 
 
 
-<title>How To Save Files Right  My Blog</title>
+<title>How To Atomically Update A Counter Shared Between Docker Instances  My Blog</title>
 
 
 
 
-<meta name="description" content="  Create temporary file. Handle all possible exceptions.  Write data to that temporary file. Handle all possible exceptions.  Close temporary file. During that exceptions are also possible.  If all previous steps completes successfully, rename temporary file to existing file and handle all possible exceptions.">
+<meta name="description" content="ProblemThere are some multiple API endpoints (REST services for example) that increased some counter every time API is called.The counter value must be shared between endpoints. They are often dockerized and different containers can be run on different hosts.">
 
 
 
@@ -33,15 +33,15 @@
 
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:title" content="How To Save Files Right">
+<meta property="og:title" content="How To Atomically Update A Counter Shared Between Docker Instances">
 
 
-  <link rel="canonical" href="https://venis.github.io/2013/01/20/how-to-save-files-right.html">
-  <meta property="og:url" content="https://venis.github.io/2013/01/20/how-to-save-files-right.html">
+  <link rel="canonical" href="https://venis.github.io/2017/07/18/how-to-atomically-update-a-counter-shared-between-docker-instances.html">
+  <meta property="og:url" content="https://venis.github.io/2017/07/18/how-to-atomically-update-a-counter-shared-between-docker-instances.html">
 
 
 
-  <meta property="og:description" content="  Create temporary file. Handle all possible exceptions.  Write data to that temporary file. Handle all possible exceptions.  Close temporary file. During that exceptions are also possible.  If all previous steps completes successfully, rename temporary file to existing file and handle all possible exceptions.">
+  <meta property="og:description" content="ProblemThere are some multiple API endpoints (REST services for example) that increased some counter every time API is called.The counter value must be shared between endpoints. They are often dockerized and different containers can be run on different hosts.">
 
 
 
@@ -52,7 +52,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2013-01-20T00:00:00+02:00">
+  <meta property="article:published_time" content="2017-07-18T00:00:00+03:00">
 
 
 
@@ -308,15 +308,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="How To Save Files Right">
-    <meta itemprop="description" content="  Create temporary file. Handle all possible exceptions.  Write data to that temporary file. Handle all possible exceptions.  Close temporary file. During that exceptions are also possible.  If all previous steps completes successfully, rename temporary file to existing file and handle all possible exceptions.">
-    <meta itemprop="datePublished" content="January 20, 2013">
+    <meta itemprop="headline" content="How To Atomically Update A Counter Shared Between Docker Instances">
+    <meta itemprop="description" content="ProblemThere are some multiple API endpoints (REST services for example) that increased some counter every time API is called.The counter value must be shared between endpoints. They are often dockerized and different containers can be run on different hosts.">
+    <meta itemprop="datePublished" content="July 18, 2017">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">How To Save Files Right
+          <h1 class="page__title" itemprop="headline">How To Atomically Update A Counter Shared Between Docker Instances
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -331,16 +331,21 @@
       
 
       <section class="page__content" itemprop="text">
-        <ol>
-  <li>Create temporary file. Handle all possible exceptions.</li>
-  <li>Write data to that temporary file. Handle all possible exceptions.</li>
-  <li>Close temporary file. During that exceptions are also possible.</li>
-  <li>If all previous steps completes successfully, rename temporary file to existing file and handle all possible exceptions.</li>
-</ol>
+        <h2 id="problem">Problem</h2>
+<p>There are some multiple API endpoints (REST services for example) that increased some counter every time API is called.
+The counter value must be shared between endpoints. They are often dockerized and different containers can be run on 
+different hosts.</p>
 
-<p>Steps 1-3 can be combined together if there is a function available that creates file with given content.</p>
+<h2 id="solution">Solution</h2>
 
-<p>Following those steps prevents a lot of failures like insufficient disk space or reset during file saving.</p>
+<p>To solve given problem using for example database is overhead. Everything needed is just some distributed lightweight 
+key-value storage with shared lock support. Here are some candidates:</p>
+
+<ul>
+  <li>etcd (https://coreos.com/etcd)</li>
+  <li>consul (https://www.consul.io, especially https://www.consul.io/docs/commands/lock.html)</li>
+  <li>redis (http://redis.io)</li>
+</ul>
 
         
       </section>
@@ -348,6 +353,41 @@
       <footer class="page__meta">
         
         
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="https://venis.github.io/tags/consul" class="page__taxonomy-item" rel="tag">consul</a><span class="sep">, </span>
+    
+      
+      
+      <a href="https://venis.github.io/tags/docker" class="page__taxonomy-item" rel="tag">docker</a><span class="sep">, </span>
+    
+      
+      
+      <a href="https://venis.github.io/tags/enterprise-integration" class="page__taxonomy-item" rel="tag">enterprise-integration</a><span class="sep">, </span>
+    
+      
+      
+      <a href="https://venis.github.io/tags/etcd" class="page__taxonomy-item" rel="tag">etcd</a><span class="sep">, </span>
+    
+      
+      
+      <a href="https://venis.github.io/tags/redis" class="page__taxonomy-item" rel="tag">redis</a>
+    
+    </span>
+  </p>
+
+
 
 
   
@@ -363,39 +403,38 @@
     
       
       
-      <a href="https://venis.github.io/categories/software-development" class="page__taxonomy-item" rel="tag">Software Development</a>
+      <a href="https://venis.github.io/categories/q-a" class="page__taxonomy-item" rel="tag">Q&A</a>
     
     </span>
   </p>
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2013-01-20T00:00:00+02:00">January 20, 2013</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-07-18T00:00:00+03:00">July 18, 2017</time></p>
         
       </footer>
 
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?text=How To Save Files Right https://venis.github.io/2013/01/20/how-to-save-files-right.html" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=How To Atomically Update A Counter Shared Between Docker Instances https://venis.github.io/2017/07/18/how-to-atomically-update-a-counter-shared-between-docker-instances.html" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://venis.github.io/2013/01/20/how-to-save-files-right.html" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://venis.github.io/2017/07/18/how-to-atomically-update-a-counter-shared-between-docker-instances.html" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=https://venis.github.io/2013/01/20/how-to-save-files-right.html" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=https://venis.github.io/2017/07/18/how-to-atomically-update-a-counter-shared-between-docker-instances.html" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://venis.github.io/2013/01/20/how-to-save-files-right.html" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://venis.github.io/2017/07/18/how-to-atomically-update-a-counter-shared-between-docker-instances.html" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="https://venis.github.io/2012/12/11/static-pages-in-symfony.html" class="pagination--pager" title="Static Pages In Symfony
+      <a href="https://venis.github.io/2013/01/20/how-to-save-files-right.html" class="pagination--pager" title="How To Save Files Right
 ">Previous</a>
     
     
-      <a href="https://venis.github.io/2017/07/18/how-to-atomically-update-a-counter-shared-between-docker-instances.html" class="pagination--pager" title="How To Atomically Update A Counter Shared Between Docker Instances
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -440,7 +479,7 @@
                 <input type="url" id="comment-form-url" name="fields[url]" tabindex="4"/>
               </fieldset>
               <fieldset class="hidden" style="display: none;">
-                <input type="hidden" name="options[slug]" value="how-to-save-files-right">
+                <input type="hidden" name="options[slug]" value="how-to-atomically-update-a-counter-shared-between-docker-instances">
                 <label for="comment-form-location">Not used. Leave blank if you are a human.</label>
                 <input type="text" id="comment-form-location" name="fields[hidden]" autocomplete="off"/>
               </fieldset>
